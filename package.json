@@ -14,7 +14,8 @@
     "build": "yarn clean && cross-env NODE_ENV=production rollup -c",
     "size": "yarn build && size-limit",
     "checkAll": "yarn size && yarn lint && yarn test",
-    "contributors:generate": "yarn all-contributors generate"
+    "contributors:generate": "yarn all-contributors generate",
+    "prepare": "npm run build"
   },
   "files": [
     "lib",
