@@ -27,7 +27,8 @@ const animateContent = ({ parent, direction }) => {
 const handleSlideAnimationEnd = ({ target }) => {
   target.classList.remove('-hiddenNext');
   target.classList.remove('-hiddenPrevious');
-  target.classList.replace('-shownAnimated', '-shown');
+  target.classList.remove('-shownAnimated');
+  target.classList.add('-shown');
 };
 
 export { animateContent, getSlideDate, handleSlideAnimationEnd };
