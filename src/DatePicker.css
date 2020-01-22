@@ -157,10 +157,12 @@
   font-weight: 500;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
+  left: 0;
+  right: 0;
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -170,31 +172,30 @@
 
 .Calendar__monthYear.-hiddenNext {
   opacity: 0;
-  transform: translateX(50%);
+  transform: translateX(100%);
 }
 
 .Calendar.-rtl .Calendar__monthYear.-hiddenNext {
-  transform: translateX(-150%);
+  transform: translateX(-100%);
 }
 
 .Calendar__monthYear.-hiddenPrevious {
   opacity: 0;
-  transform: translateX(-150%);
+  transform: translateX(-100%);
 }
 
 .Calendar.-rtl .Calendar__monthYear.-hiddenPrevious {
-  transform: translateX(50%);
+  transform: translateX(100%);
 }
 
 .Calendar__monthYear.-shown {
   opacity: 1;
   margin-top: auto;
   margin-bottom: auto;
-  transform: translateX(-50%);
 }
 
 .Calendar__monthYear.-shownAnimated {
-  animation: var(--animation-duration) fadeTextToCenter forwards;
+  animation: var(--animation-duration) FadeContentToCenter forwards;
 }
 
 .Calendar__monthYear > * {
@@ -382,7 +383,7 @@
 }
 
 .Calendar__monthSelectorItem {
-  width: calc(100% / 3);
+  width: calc(100% * 0.33333); /* fixes IE rounding error */
   display: flex;
   justify-content: center;
 }
@@ -606,13 +607,6 @@
   color: transparent;
   cursor: default;
   pointer-events: none;
-}
-
-@keyframes fadeTextToCenter {
-  to {
-    opacity: 1;
-    transform: translateX(-50%);
-  }
 }
 
 @keyframes FadeContentToCenter {
